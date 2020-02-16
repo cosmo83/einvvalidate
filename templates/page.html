@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block extracss %}
+
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <h1>Upload Invoice PDF</h1>
+      <hr>
+
+      <form action="/" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <label>Select PDF File</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="pdffile" id="pdffile">
+            <label class="custom-file-label" for="image">Select image...</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Upload</button>
+
+      </form>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <br/>
+      <div><label for="signed_qrcode">Signed QRCode:</label></div>
+      <div>
+        <textarea disabled id="signed_qrcode" rows="10" cols="45">
+  	{{ signed_qrcode }} 
+        </textarea>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <br/>
+      <div><label for="val_qrcode">Validated QRCode:</label></div>
+      <div>
+        <textarea disabled id="val_qrcode" rows="10" cols="45">
+  	{{ val_qrcode }} 
+        </textarea>
+      </div>
+    </div>
+  </div>
+    
+</div>
+{% endblock %}
