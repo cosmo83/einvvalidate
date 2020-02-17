@@ -13,14 +13,18 @@
       <form action="/" method="POST" enctype="multipart/form-data">
 
         <div class="form-group">
-          <label>Select PDF File</label>
           <div class="custom-file">
-            <input type="file" class="custom-file-input" name="pdffile" id="pdffile">
-            <label class="custom-file-label" for="image">Select image...</label>
+            <input type="file" class="custom-file-input" name="pdffile" id="pdffile" accept=".pdf">
+            <label class="custom-file-label" for="image">Select PDF File...</label>
           </div>
         </div>
 
         <button type="submit" class="btn btn-primary">Upload</button>
+        {% if error %}
+        <div class="alert alert-primary" role="alert">
+           {{ error }}
+        </div>
+        {% endif %}
 
       </form>
 

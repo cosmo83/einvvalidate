@@ -37,11 +37,14 @@ def upload_pdf():
                       return processqrcode(signed_qrcode)
                 except PyPDF2.utils.PdfReadError:
                   os.remove(os.path.join(app.instance_path, 'tmpfiles', fname,secure_filename(f.filename)))
-                  return "invalid PDF file"
+                  return processqrcode(None,"Not a valid PDF")
                 os.remove(os.path.join(app.instance_path, 'tmpfiles', fname,secure_filename(f.filename)))
-                return 'Success'
+                if(not foundqrcode):
+                  return processqrcode(None,"Did Not Find QRCode in the PDF") 
 
-def processqrcode(signed_qrcode):
+def processqrcode(signed_qrcode,error=None):
+    if(error):
+      return render_template('page.html',error=error)
     public_key=open("einv_sandbox.pem", "r").read()
     ret={}
     for qrcode in signed_qrcode:
