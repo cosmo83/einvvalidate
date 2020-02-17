@@ -56,4 +56,4 @@ def processqrcode(signed_qrcode,error=None):
     return render_template('page.html',signed_qrcode=ret['qrcode_signed'],val_qrcode=json.dumps(ret['qrcode_validated']))
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0',port='8000')

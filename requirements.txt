@@ -1,0 +1,5 @@
+Flask==0.10.1
+PyPDF2==1.26.0
+pdf2image==1.11.0
+pyzbar==0.1.8
+python-jwt==3.2.5
